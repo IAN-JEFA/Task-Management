@@ -1,8 +1,6 @@
 // app.js — Task Manager Frontend
 
-// ── Config ────────────────────────────────────────────────────────────────────
-// Change this to your deployed URL when hosting online.
-// For local dev with XAMPP/Laragon: 'http://localhost/taskmanager/api'
+
 const API_BASE = '../api';   // relative path when served from public/
 
 // ── State ─────────────────────────────────────────────────────────────────────
