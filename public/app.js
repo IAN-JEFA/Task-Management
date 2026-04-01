@@ -3,7 +3,7 @@
 // ── Config ────────────────────────────────────────────────────────────────────
 // Detect base path automatically — works for XAMPP subfolders and direct PHP server
 const _loc = window.location;
-const _base = _loc.pathname.replace(/\/public\/.*$/, '');   // strips /public/index.html
+
 const API_BASE = `https://taskmanager-production-68de.up.railway.app/api/index.php`;
 
 // ── State ─────────────────────────────────────────────────────────────────────
