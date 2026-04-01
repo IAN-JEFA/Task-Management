@@ -3,6 +3,8 @@
 // ── Config 
 // Detect base path automatically — works for XAMPP subfolders and direct PHP server
 const API_PHP = 'https://taskmanager-production-68de.up.railway.app/api/index.php';
+const PORT = process.env.PORT || 3306;
+app.listen(PORT, () => console.log(`Server running on ${PORT}`));
 // ── State 
 let currentFilter = '';
 
