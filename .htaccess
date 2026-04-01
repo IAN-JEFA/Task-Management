@@ -1,10 +1,12 @@
 Options -Indexes
 RewriteEngine On
+RewriteBase /
 
-# Route all /api/* requests to api/index.php
+# Route all /api/* requests to api/index.php, preserving query string
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*/)api/(.*)$ $1api/index.php [QSA,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^api/(.*)$ api/index.php [QSA,L]
-
-# Serve index.html for root
-RewriteRule ^$ public/index.html [L]

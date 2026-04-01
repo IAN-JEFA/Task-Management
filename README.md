@@ -31,16 +31,12 @@ taskmanager/
 
 ### Step 1 — Install a local PHP/MySQL server
 
-**Option A: XAMPP** (recommended for beginners)
+ XAMPP
 - Download from https://www.apachefriends.org
 - Install and open XAMPP Control Panel
 - Start **Apache** and **MySQL**
 
-**Option B: Laragon** (cleaner, modern)
-- Download from https://laragon.org
-- Start All services
 
----
 
 ### Step 2 — Place the project in the web root
 
@@ -50,10 +46,6 @@ C:\xampp\htdocs\taskmanager\   (Windows)
 /Applications/XAMPP/htdocs/taskmanager/   (Mac)
 ```
 
-**Laragon:**
-```
-C:\laragon\www\taskmanager\
-```
 
 Copy or clone the entire project into that folder.
 
@@ -177,9 +169,9 @@ GET http://localhost/taskmanager/api/tasks/report?date=2026-04-01
 
 ---
 
-## 🚀 Deploying Online (Railway + PlanetScale)
+## 🚀 Deploying Online 
 
-### Option A — Railway (easiest, recommended)
+ Railway (easiest, recommended)
 
 **Step 1 — Push code to GitHub**
 ```bash
@@ -224,38 +216,4 @@ Railway gives you a URL like: `https://taskmanager-production.up.railway.app`
 
 ---
 
-### Option B — Render + PlanetScale
 
-**Step 1 — Set up PlanetScale (free MySQL)**
-1. Go to https://planetscale.com, create an account
-2. Create a new database → name it `taskmanager`
-3. Click **"Connect"** → choose **PHP (PDO)** → copy the credentials
-
-**Step 2 — Deploy on Render**
-1. Go to https://render.com
-2. New → **Web Service** → Connect your GitHub repo
-3. Set **Runtime** to `PHP`
-4. Set **Build Command** to (leave blank or `echo done`)
-5. Set **Start Command** to `php -S 0.0.0.0:$PORT -t public`
-6. Add environment variables (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD) from PlanetScale
-
-> Note: On Render's free tier, the service sleeps after inactivity.
-
----
-
-## 📌 Business Rules Summary
-
-| Rule | Behaviour |
-|------|-----------|
-| Duplicate title + due_date | Returns `409 Conflict` |
-| due_date in the past | Returns `422 Unprocessable` |
-| Priority not in low/medium/high | Returns `422` |
-| Status skip (pending → done) | Returns `422` |
-| Status revert | Returns `422` |
-| Delete non-done task | Returns `403 Forbidden` |
-| Delete non-existent task | Returns `404 Not Found` |
-
----
-
-## 📄 License
-MIT — free to use for evaluation purposes.

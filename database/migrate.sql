@@ -1,5 +1,4 @@
 -- Task Manager Database Migration
--- Run this file to create the required database and table
 
 CREATE DATABASE IF NOT EXISTS taskmanager CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

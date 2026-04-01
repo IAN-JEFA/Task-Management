@@ -1,7 +1,10 @@
 // app.js — Task Manager Frontend
 
-
-const API_BASE = '../api';   // relative path when served from public/
+// ── Config ────────────────────────────────────────────────────────────────────
+// Detect base path automatically — works for XAMPP subfolders and direct PHP server
+const _loc = window.location;
+const _base = _loc.pathname.replace(/\/public\/.*$/, '');   // strips /public/index.html
+const API_BASE = `${_loc.origin}${_base}/api`;
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let currentFilter = '';
@@ -56,7 +59,13 @@ function statusLabel(s) {
 }
 
 // ── Render Tasks ──────────────────────────────────────────────────────────────
+let _taskCache = {};
+
 function renderTasks(tasks) {
+  // Rebuild cache
+  _taskCache = {};
+  (tasks || []).forEach(t => { _taskCache[t.id] = t; });
+
   if (!tasks || tasks.length === 0) {
     taskGrid.innerHTML = `
       <div class="empty-state">
@@ -183,18 +192,7 @@ async function advanceTask(id) {
 }
 
 function findTaskById(id) {
-  const card = taskGrid.querySelector(`[data-advance="${id}"], [data-delete="${id}"]`);
-  // We can parse from the card, but it's easier to just store tasks in memory
   return _taskCache[id];
-}
-
-// Keep a cache after each load
-let _taskCache = {};
-const origRender = renderTasks;
-function renderTasks(tasks) {
-  _taskCache = {};
-  (tasks || []).forEach(t => { _taskCache[t.id] = t; });
-  origRender(tasks);
 }
 
 // ── Delete Task ───────────────────────────────────────────────────────────────

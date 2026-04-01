@@ -31,8 +31,11 @@ function bodyJson(): array {
 $method     = $_SERVER['REQUEST_METHOD'];
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Strip leading /api from path if present
-$path = preg_replace('#^/api#', '', $requestUri);
+// Strip everything up to and including /api (handles subfolders like /taskmanager/api/tasks)
+// e.g. /taskmanager/api/tasks  →  /tasks
+//      /api/tasks              →  /tasks
+//      /tasks                  →  /tasks  (direct PHP server)
+$path = preg_replace('#^.*/api#', '', $requestUri);
 $path = rtrim($path, '/') ?: '/';
 
 // Match routes:
