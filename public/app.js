@@ -2,8 +2,7 @@
 
 // ── Config 
 // Detect base path automatically — works for XAMPP subfolders and direct PHP server
-const _loc = window.location;
-const API_PHP = 'https://task-manager-production-58b5.up.railway.app/api/index.php';
+const API_PHP = 'https://taskmanager-production-68de.up.railway.app/api/index.php';
 // ── State 
 let currentFilter = '';
 
