@@ -1,0 +1,7 @@
+{
+  "name": "taskmanager/app",
+  "description": "Task Management API",
+  "require": {
+    "php": ">=8.1"
+  }
+}

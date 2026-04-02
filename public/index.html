@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>TaskFlow — Task Manager</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow — Task Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
   <div class="brand">
     <span class="brand-icon">⬡</span>
@@ -29,10 +28,7 @@
   </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
-
-  <!-- HEADER -->
   <header class="page-header">
     <div>
       <h1 class="page-title">Task Board</h1>
@@ -40,15 +36,12 @@
     </div>
     <button class="btn btn--primary" id="openCreateBtn">+ New Task</button>
   </header>
-
-  <!-- TASK GRID -->
   <section class="task-grid" id="taskGrid">
     <div class="spinner-wrap"><div class="spinner"></div></div>
   </section>
-
 </main>
 
-<!-- ── CREATE TASK MODAL ──────────────────────────── -->
+<!-- CREATE MODAL -->
 <div class="modal-overlay" id="createModal">
   <div class="modal">
     <div class="modal-header">
@@ -87,7 +80,7 @@
   </div>
 </div>
 
-<!-- ── REPORT MODAL ───────────────────────────────── -->
+<!-- REPORT MODAL -->
 <div class="modal-overlay" id="reportModal">
   <div class="modal modal--wide">
     <div class="modal-header">
@@ -105,9 +98,7 @@
   </div>
 </div>
 
-<!-- ── TOAST ──────────────────────────────────────── -->
 <div id="toast" class="toast"></div>
-
 <script src="app.js"></script>
 </body>
 </html>
