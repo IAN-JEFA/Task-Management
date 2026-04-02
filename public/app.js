@@ -7,6 +7,12 @@ const _origin  = window.location.origin;
 const _base    = '';
 const _apiFile = 'https://taskmanager-production-68de.up.railway.app/api/index.php';
 
+// Use PORT provided in environment or default to 3000
+const port = process.env.PORT || 3000;
+// Listen on `port` and 0.0.0.0
+app.listen(port, "0.0.0.0", function () {
+  // ...
+});
 function apiUrl(route, extra = {}) {
     // route: '/tasks'  '/tasks/report'  '/tasks/5/status'  '/tasks/5'
     const params = new URLSearchParams({ _path: route.replace(/^\//, ''), ...extra });
